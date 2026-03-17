@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Play Game - Unblocked Games</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #0f0f1e;
+            color: #e4e4e4;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .toolbar {
+            background: rgba(15, 15, 30, 0.98);
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+        
+        .toolbar.hidden {
+            transform: translateY(-100%);
+        }
+        
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .home-btn {
+            padding: 0.6rem 1.2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .home-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .game-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #667eea;
+        }
+        
+        .toolbar-right {
+            display: flex;
+            gap: 0.8rem;
+        }
+        
+        .icon-btn {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 8px;
+            color: #e4e4e4;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .icon-btn:hover {
+            background: rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+        
+        .game-container {
+            width: 100%;
+            height: calc(100vh - 60px);
+            position: relative;
+        }
+        
+        .game-container.fullscreen {
+            height: 100vh;
+        }
+        
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+        
+        .toggle-toolbar {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background: rgba(102, 126, 234, 0.8);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .toggle-toolbar:hover {
+            background: rgba(102, 126, 234, 1);
+            transform: scale(1.1);
+        }
+        
+        .toggle-toolbar.show {
+            display: flex;
+        }
+        
+        .error-message {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+            color: #ff6b6b;
+        }
+        
+        .error-message h2 {
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .toolbar {
+                padding: 0.6rem 1rem;
+            }
+            
+            .game-title {
+                font-size: 1rem;
+            }
+            
+            .home-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="toolbar" id="toolbar">
+        <div class="toolbar-left">
+            <a href="index.html" class="home-btn">← Home</a>
+            <div class="game-title" id="gameTitle">Loading...</div>
+        </div>
+        <div class="toolbar-right">
+            <button class="icon-btn" id="toggleToolbarBtn" title="Hide toolbar">👁️</button>
+            <button class="icon-btn" id="fullscreenBtn" title="Fullscreen">⛶</button>
+        </div>
+    </div>
+    
+    <button class="toggle-toolbar" id="showToolbarBtn">👁️</button>
+    
+    <div class="game-container" id="gameContainer">
+        <iframe id="gameFrame" allowfullscreen></iframe>
+    </div>
+    
+    <div class="error-message" id="errorMessage">
+        <h2>Game Not Found</h2>
+        <p>The requested game could not be loaded.</p>
+        <a href="index.html" class="home-btn" style="margin-top: 1rem;">Back to Home</a>
+    </div>
+
+    <script>
+        const games = {
+            "slope": "Slope",
+            "slope-2": "Slope 2",
+            "tunnel-rush": "Tunnel Rush",
+            "geometry-dash": "Geometry Dash",
+            "cookie-clicker": "Cookie Clicker",
+            "flappy-bird": "Flappy Bird",
+            "2048": "2048",
+            "among-us": "Among Us",
+            "wordle": "Wordle",
+            "minesweeper": "Minesweeper",
+            "level-devil": "Level Devil",
+            "tiny-fishing": "Tiny Fishing",
+            "basket-bros": "Basket Bros",
+            "doodle-jump": "Doodle Jump",
+            "duck-life": "Duck Life",
+            "duck-life-2": "Duck Life 2",
+            "duck-life-4": "Duck Life 4",
+            "paper-minecraft": "Paper Minecraft",
+            "temple-run-2": "Temple Run 2",
+            "vex-6": "Vex 6",
+            "draw-the-hill": "Draw The Hill",
+            "stack": "Stack",
+            "bad-ice-cream-2": "Bad Ice Cream 2",
+            "retro-bowl": "Retro Bowl",
+            "tetris": "Tetris",
+            "breaking-the-bank": "Breaking The Bank",
+            "bloons-td": "Bloons TD",
+            "jelly-truck": "Jelly Truck",
+            "gun-mayhem": "Gun Mayhem",
+            "tag": "Tag",
+            "stack-ball": "Stack Ball",
+            "adventure-drivers": "Adventure Drivers",
+            "2048-multitask": "2048 Multitask",
+            "traffic-escape": "Traffic Escape",
+            "scrap-metal-3": "Scrap Metal 3",
+            "rocket-soccer": "Rocket Soccer",
+            "tanuki-sunset": "Tanuki Sunset",
+            "basketball-stars": "Basketball Stars"
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const gameId = urlParams.get('game');
+        
+        const gameFrame = document.getElementById('gameFrame');
+        const gameTitle = document.getElementById('gameTitle');
+        const pageTitle = document.getElementById('pageTitle');
+        const errorMessage = document.getElementById('errorMessage');
+        const gameContainer = document.getElementById('gameContainer');
+        const toolbar = document.getElementById('toolbar');
+        const toggleToolbarBtn = document.getElementById('toggleToolbarBtn');
+        const showToolbarBtn = document.getElementById('showToolbarBtn');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+        if (gameId && games[gameId]) {
+            const gameName = games[gameId];
+            gameTitle.textContent = gameName;
+            pageTitle.textContent = `${gameName} - Unblocked Games`;
+            gameFrame.src = `games/${gameId}/index.html`;
+        } else {
+            gameContainer.style.display = 'none';
+            toolbar.style.display = 'none';
+            errorMessage.style.display = 'block';
+        }
+
+        toggleToolbarBtn.addEventListener('click', () => {
+            toolbar.classList.add('hidden');
+            showToolbarBtn.classList.add('show');
+        });
+
+        showToolbarBtn.addEventListener('click', () => {
+            toolbar.classList.remove('hidden');
+            showToolbarBtn.classList.remove('show');
+        });
+
+        fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log('Fullscreen error:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
+        document.addEventListener('fullscreenchange', () => {
+            if (document.fullscreenElement) {
+                gameContainer.classList.add('fullscreen');
+                toolbar.classList.add('hidden');
+                showToolbarBtn.classList.add('show');
+            } else {
+                gameContainer.classList.remove('fullscreen');
+            }
+        });
+    </script>
+</body>
+</html>
