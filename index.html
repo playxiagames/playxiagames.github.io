@@ -4,249 +4,230 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unblocked Games - Play Free Online Games at School</title>
-    <meta name="description" content="Play the best unblocked games at school or work. Free online games including action, puzzle, sports, and casual games. No downloads required, instant play!">
-    <meta name="keywords" content="unblocked games, free online games, games to play at school, browser games, no download games">
-    <link rel="canonical" href="https://playxiagames.github.io/">
+    <meta name="description" content="Play the best unblocked games at school or work. Free online games including Slope, Geometry Dash, Among Us, Cookie Clicker and more. No downloads required, instant play!">
+    <meta name="keywords" content="unblocked games, free online games, games to play at school, browser games, no download games, unblocked games at school">
+    <link rel="canonical" href="https://playxiagames.github.io/index.html">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: #e4e4e4;
             min-height: 100vh;
         }
-        
         header {
             background: rgba(15, 15, 30, 0.95);
-            padding: 1.5rem 2rem;
+            padding: 1rem 2rem;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             position: sticky;
             top: 0;
             z-index: 100;
         }
-        
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             text-align: center;
         }
-        
         .search-box {
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
-            position: relative;
         }
-        
         .search-box input {
             width: 100%;
-            padding: 0.8rem 1.2rem;
+            padding: 0.6rem 1rem;
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(102, 126, 234, 0.3);
             border-radius: 50px;
             color: #fff;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: all 0.3s;
         }
-        
         .search-box input:focus {
             outline: none;
             border-color: #667eea;
             background: rgba(255, 255, 255, 0.15);
         }
-        
-        .search-box input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-        
-        .intro-section {
+        .search-box input::placeholder { color: rgba(255, 255, 255, 0.5); }
+
+        /* Featured Game Section */
+        .featured-section {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            text-align: center;
+            margin: 1.5rem auto;
+            padding: 0 1.5rem;
         }
-        
-        .intro-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #d4d4d4;
+        .featured-section h2 {
+            font-size: 1.4rem;
+            color: #667eea;
             margin-bottom: 1rem;
         }
-        
-        .filters {
-            display: flex;
-            gap: 0.8rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 2rem 0;
-            padding: 0 1rem;
-        }
-        
-        .filter-btn {
-            padding: 0.6rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 2px solid rgba(102, 126, 234, 0.3);
-            border-radius: 25px;
-            color: #fff;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.95rem;
-        }
-        
-        .filter-btn:hover {
-            background: rgba(102, 126, 234, 0.2);
-            border-color: #667eea;
-        }
-        
-        .filter-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-color: transparent;
-        }
-        
-        .games-grid {
+        .featured-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
+            grid-template-columns: 1fr 280px;
+            gap: 1rem;
         }
-        
-        .game-card {
+        .featured-game {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 1.5rem;
-            transition: all 0.3s;
-            border: 2px solid transparent;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        .featured-game iframe {
+            width: 100%;
+            height: 480px;
+            border: none;
+            display: block;
+        }
+        .featured-sidebar {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 0.6rem;
         }
-        
-        .game-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(102, 126, 234, 0.5);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        .featured-sidebar h3 {
+            font-size: 1rem;
+            color: #b0b0b0;
+            margin-bottom: 0.2rem;
         }
-        
-        .game-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .game-name {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            text-align: center;
-        }
-        
-        .game-tags {
+        .sidebar-game {
             display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 1rem;
-        }
-        
-        .tag {
-            padding: 0.3rem 0.8rem;
-            background: rgba(102, 126, 234, 0.2);
-            border-radius: 15px;
-            font-size: 0.8rem;
-            color: #a8b3ff;
-        }
-        
-        .play-btn {
-            padding: 0.7rem 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.6rem 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
             text-decoration: none;
-            border-radius: 25px;
-            font-weight: 600;
+            color: #e4e4e4;
             transition: all 0.3s;
-            display: inline-block;
-            margin-top: auto;
+            cursor: pointer;
         }
-        
-        .play-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        .sidebar-game:hover, .sidebar-game.active {
+            background: rgba(102, 126, 234, 0.15);
+            transform: translateX(4px);
         }
-        
-        .no-results {
-            text-align: center;
-            padding: 4rem 2rem;
-            font-size: 1.2rem;
-            color: #888;
-            display: none;
+        .sidebar-game.active {
+            border-left: 3px solid #667eea;
         }
-        
-        footer {
-            background: rgba(15, 15, 30, 0.95);
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-            text-align: center;
+        .sidebar-game .sg-icon { font-size: 1.5rem; }
+        .sidebar-game .sg-name { font-weight: 600; font-size: 0.9rem; }
+        .sidebar-game .sg-cat { font-size: 0.75rem; color: #888; }
+
+        /* Intro */
+        .intro-section {
+            max-width: 1200px;
+            margin: 1.5rem auto;
+            padding: 0 1.5rem;
         }
-        
-        .footer-content {
+        .intro-section p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #d4d4d4;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 0.6rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 1.5rem 0;
+            padding: 0 1rem;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            border-radius: 25px;
+            color: #e4e4e4;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border-color: transparent;
+        }
+
+        /* Games Grid */
+        .section-heading {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .section-heading h2 {
+            font-size: 1.4rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1.2rem;
+            padding: 1rem 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
-        
-        .footer-content p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #d4d4d4;
-            margin-bottom: 1rem;
+        .game-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.2rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
         }
-        
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
+        .game-card:hover {
+            transform: translateY(-5px);
+            background: rgba(102, 126, 234, 0.1);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
         }
-        
-        .footer-links a {
-            color: #667eea;
+        .game-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .game-name { font-weight: 600; margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .game-tags { display: flex; gap: 0.3rem; justify-content: center; flex-wrap: wrap; margin-bottom: 0.5rem; }
+        .tag { font-size: 0.7rem; padding: 0.15rem 0.5rem; background: rgba(102, 126, 234, 0.2); border-radius: 10px; color: #667eea; }
+        .play-btn {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            color: #fff;
             text-decoration: none;
-            transition: color 0.3s;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
         }
-        
-        .footer-links a:hover {
-            color: #764ba2;
+        .play-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4); }
+        .no-results { text-align: center; padding: 3rem; color: #888; display: none; font-size: 1.1rem; }
+
+        /* SEO Bottom */
+        .seo-section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
         }
-        
+        .seo-section h2 { font-size: 1.3rem; color: #667eea; margin-bottom: 0.8rem; }
+        .seo-section h3 { font-size: 1.1rem; color: #9b9bdb; margin: 1rem 0 0.5rem; }
+        .seo-section p { font-size: 0.95rem; line-height: 1.7; color: #b0b0b0; margin-bottom: 0.8rem; }
+
+        footer {
+            background: rgba(15, 15, 30, 0.95);
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-top: 1rem; }
+        .footer-links a { color: #667eea; text-decoration: none; }
+        .footer-links a:hover { color: #764ba2; }
+
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .games-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 1.5rem;
-                padding: 1rem;
-            }
-            
-            .filters {
-                gap: 0.5rem;
-            }
-            
-            .filter-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
-            }
+            h1 { font-size: 1.5rem; }
+            .featured-layout { grid-template-columns: 1fr; }
+            .featured-game iframe { height: 300px; }
+            .featured-sidebar { flex-direction: row; overflow-x: auto; }
+            .sidebar-game { min-width: 140px; }
+            .games-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 0.8rem; }
         }
     </style>
 </head>
@@ -254,12 +235,57 @@
     <header>
         <h1>Unblocked Games - Play Free Online Games</h1>
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search games...">
+            <input type="text" id="searchInput" placeholder="Search games..." aria-label="Search games">
         </div>
     </header>
 
+    <!-- Featured Game -->
+    <section class="featured-section">
+        <h2>🔥 Featured Game</h2>
+        <div class="featured-layout">
+            <div class="featured-game">
+                <iframe id="featuredFrame" src="games/slope/index.html" allowfullscreen title="Play Slope Unblocked"></iframe>
+            </div>
+            <div class="featured-sidebar">
+                <h3>Popular Games</h3>
+                <a class="sidebar-game active" data-game="slope" data-name="Slope">
+                    <span class="sg-icon">⛷️</span>
+                    <div><div class="sg-name">Slope</div><div class="sg-cat">Arcade</div></div>
+                </a>
+                <a class="sidebar-game" data-game="geometry-dash" data-name="Geometry Dash">
+                    <span class="sg-icon">🔷</span>
+                    <div><div class="sg-name">Geometry Dash</div><div class="sg-cat">Arcade</div></div>
+                </a>
+                <a class="sidebar-game" data-game="among-us" data-name="Among Us">
+                    <span class="sg-icon">👾</span>
+                    <div><div class="sg-name">Among Us</div><div class="sg-cat">Action</div></div>
+                </a>
+                <a class="sidebar-game" data-game="cookie-clicker" data-name="Cookie Clicker">
+                    <span class="sg-icon">🍪</span>
+                    <div><div class="sg-name">Cookie Clicker</div><div class="sg-cat">Idle</div></div>
+                </a>
+                <a class="sidebar-game" data-game="retro-bowl" data-name="Retro Bowl">
+                    <span class="sg-icon">🏈</span>
+                    <div><div class="sg-name">Retro Bowl</div><div class="sg-cat">Sports</div></div>
+                </a>
+                <a class="sidebar-game" data-game="tunnel-rush" data-name="Tunnel Rush">
+                    <span class="sg-icon">🌀</span>
+                    <div><div class="sg-name">Tunnel Rush</div><div class="sg-cat">Arcade</div></div>
+                </a>
+                <a class="sidebar-game" data-game="tetris" data-name="Tetris">
+                    <span class="sg-icon">🧱</span>
+                    <div><div class="sg-name">Tetris</div><div class="sg-cat">Puzzle</div></div>
+                </a>
+                <a class="sidebar-game" data-game="flappy-bird" data-name="Flappy Bird">
+                    <span class="sg-icon">🐦</span>
+                    <div><div class="sg-name">Flappy Bird</div><div class="sg-cat">Arcade</div></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <div class="intro-section">
-        <p>Welcome to the ultimate collection of unblocked games! Play free online games at school, work, or anywhere without restrictions. Our carefully curated selection includes action-packed adventures, brain-teasing puzzles, competitive sports games, and relaxing casual experiences. All games load instantly in your browser with no downloads required. Whether you're looking for a quick gaming break or an extended play session, we've got you covered with the best unblocked games available online.</p>
+        <p>Welcome to the ultimate collection of unblocked games you can play at school, work, or anywhere. All games load instantly in your browser — no downloads, no installs, no restrictions. From fast-paced arcade hits like Slope and Tunnel Rush to brain-teasing puzzles like 2048 and Wordle, we have something for everyone.</p>
     </div>
 
     <div class="filters">
@@ -273,18 +299,30 @@
         <button class="filter-btn" data-filter="strategy">Strategy</button>
     </div>
 
+    <div class="section-heading"><h2>🎮 All Unblocked Games</h2></div>
     <div class="games-grid" id="gamesGrid"></div>
     <div class="no-results" id="noResults">No games found. Try a different search or filter.</div>
 
+    <!-- SEO Content -->
+    <section class="seo-section">
+        <h2>Why Play Unblocked Games?</h2>
+        <p>Unblocked games are browser-based games that can be accessed from school, work, or any network with restrictions. Unlike downloadable games, these run directly in your web browser using HTML5 technology, making them fast, safe, and accessible on any device.</p>
+        
+        <h3>Play Anywhere, Anytime</h3>
+        <p>Our games are hosted on GitHub Pages, which means they work on most school and office networks. Whether you're on a Chromebook, laptop, or desktop computer, all you need is a web browser to start playing. No plugins, no Flash — just pure HTML5 gaming.</p>
+        
+        <h3>Games for Every Taste</h3>
+        <p>From the adrenaline rush of Slope and Geometry Dash to the strategic depth of Bloons TD and the creative freedom of Paper Minecraft, our library covers every genre. Challenge yourself with puzzle games like 2048 and Wordle, compete in sports games like Basketball Stars and Retro Bowl, or just relax with idle games like Cookie Clicker.</p>
+    </section>
+
     <footer>
         <div class="footer-content">
-            <p>Unblocked Games offers the largest collection of free online games that can be played at school, work, or home. We continuously update our library with new titles across all genres. From classic arcade games to modern multiplayer experiences, every game is carefully selected to ensure quality entertainment. Our platform is optimized for all devices and browsers, providing seamless gameplay without installation. Join millions of players worldwide who trust us for their daily gaming needs. Bookmark this page and never miss out on the latest unblocked games!</p>
             <div class="footer-links">
                 <a href="about.html">About</a>
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="dmca.html">DMCA</a>
             </div>
-            <p style="margin-top: 2rem; font-size: 0.9rem; color: #888;">© 2024 Unblocked Games. All rights reserved.</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem; color: #888;">© 2026 Unblocked Games. All rights reserved.</p>
         </div>
     </footer>
 
@@ -329,14 +367,14 @@
             {id: 'paper-minecraft', name: 'Paper Minecraft', img: '⛏️', category: ['adventure']},
             {id: 'retro-bowl', name: 'Retro Bowl', img: '🏈', category: ['sports']},
             {id: 'rocket-soccer', name: 'Rocket Soccer', img: '⚽', category: ['sports']},
-            {id: 'scrap-metal-3', name: 'Scrap Metal 3', img: '🤖', category: ['action']},
-            {id: 'slope', name: 'Slope', img: '🎿', category: ['arcade']},
-            {id: 'slope-2', name: 'Slope 2', img: '🎿', category: ['arcade']},
+            {id: 'scrap-metal-3', name: 'Scrap Metal 3', img: '🏎️', category: ['racing']},
+            {id: 'slope', name: 'Slope', img: '⛷️', category: ['arcade']},
+            {id: 'slope-2', name: 'Slope 2', img: '⛷️', category: ['arcade']},
             {id: 'stack', name: 'Stack', img: '📦', category: ['arcade']},
-            {id: 'stack-ball', name: 'Stack Ball', img: '🏐', category: ['arcade']},
+            {id: 'stack-ball', name: 'Stack Ball', img: '🔴', category: ['arcade']},
             {id: 'tag', name: 'Tag', img: '🏃', category: ['action']},
-            {id: 'tanuki-sunset', name: 'Tanuki Sunset', img: '🦝', category: ['racing']},
-            {id: 'temple-run-2', name: 'Temple Run 2', img: '🏃', category: ['arcade']},
+            {id: 'tanuki-sunset', name: 'Tanuki Sunset', img: '🦝', category: ['arcade']},
+            {id: 'temple-run-2', name: 'Temple Run 2', img: '🏃‍♂️', category: ['action']},
             {id: 'tetris', name: 'Tetris', img: '🧱', category: ['puzzle']},
             {id: 'tiny-fishing', name: 'Tiny Fishing', img: '🎣', category: ['casual']},
             {id: 'traffic-escape', name: 'Traffic Escape', img: '🚦', category: ['puzzle']},
@@ -348,52 +386,21 @@
         let currentFilter = 'all';
         let searchTerm = '';
 
-        // Generate ItemList Schema
-        const itemListSchema = {
-            "@context": "https://schema.org",
-            "@type": "ItemList",
-            "itemListElement": games.map((game, index) => ({
-                "@type": "ListItem",
-                "position": index + 1,
-                "item": {
-                    "@type": "VideoGame",
-                    "name": game.name,
-                    "url": `https://playxiagames.github.io/games/${game.id}/play.html`,
-                    "genre": game.category.join(', ')
-                }
-            }))
-        };
-
-        const schemaScript = document.createElement('script');
-        schemaScript.type = 'application/ld+json';
-        schemaScript.textContent = JSON.stringify(itemListSchema);
-        document.head.appendChild(schemaScript);
-
         function renderGames() {
             const grid = document.getElementById('gamesGrid');
             const noResults = document.getElementById('noResults');
-            
-            let filtered = games;
-            
-            if (currentFilter !== 'all') {
-                filtered = games.filter(game => game.category.includes(currentFilter));
-            }
-            
-            if (searchTerm) {
-                filtered = filtered.filter(game => 
-                    game.name.toLowerCase().includes(searchTerm.toLowerCase())
-                );
-            }
-
+            let filtered = games.filter(game => {
+                const matchFilter = currentFilter === 'all' || game.category.includes(currentFilter);
+                const matchSearch = game.name.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchFilter && matchSearch;
+            });
             if (filtered.length === 0) {
                 grid.style.display = 'none';
                 noResults.style.display = 'block';
                 return;
             }
-
             grid.style.display = 'grid';
             noResults.style.display = 'none';
-            
             grid.innerHTML = filtered.map(game => `
                 <div class="game-card">
                     <div class="game-icon">${game.img}</div>
@@ -406,6 +413,7 @@
             `).join('');
         }
 
+        // Filters
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -415,9 +423,23 @@
             });
         });
 
+        // Search
         document.getElementById('searchInput').addEventListener('input', (e) => {
             searchTerm = e.target.value;
             renderGames();
+        });
+
+        // Featured game switcher
+        document.querySelectorAll('.sidebar-game').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const gameId = btn.dataset.game;
+                const gameName = btn.dataset.name;
+                document.getElementById('featuredFrame').src = `games/${gameId}/index.html`;
+                document.getElementById('featuredFrame').title = `Play ${gameName} Unblocked`;
+                document.querySelectorAll('.sidebar-game').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
         });
 
         renderGames();
