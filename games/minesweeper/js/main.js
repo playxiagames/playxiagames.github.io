@@ -15,7 +15,7 @@ if (gaenabled == "false") {
 
 function LoadAds(){
     var ads = document.createElement('script');
-     ads.setAttribute("src", "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5671039626108784"), ads.setAttribute("type", "text/javascript"), ads.setAttribute("crossOrigin", "anonymous"),  ads.onload = function (){
+     ads.setAttribute("src", ""), ads.setAttribute("type", "text/javascript"), ads.setAttribute("crossOrigin", "anonymous"),  ads.onload = function (){
     },document.head.appendChild(ads);
 }
 
