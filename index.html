@@ -6,6 +6,7 @@
     <title>Unblocked Games - Play Free Online Games at School</title>
     <meta name="description" content="Play the best unblocked games at school or work. Free online games including action, puzzle, sports, and casual games. No downloads required, instant play!">
     <meta name="keywords" content="unblocked games, free online games, games to play at school, browser games, no download games">
+    <link rel="canonical" href="https://playxiagames.github.io/">
     <style>
         * {
             margin: 0;
@@ -66,6 +67,20 @@
             color: rgba(255, 255, 255, 0.5);
         }
         
+        .intro-section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .intro-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d4d4d4;
+            margin-bottom: 1rem;
+        }
+        
         .filters {
             display: flex;
             gap: 0.8rem;
@@ -80,60 +95,56 @@
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(102, 126, 234, 0.3);
             border-radius: 25px;
-            color: #e4e4e4;
+            color: #fff;
             cursor: pointer;
             transition: all 0.3s;
             font-size: 0.95rem;
-            font-weight: 500;
         }
         
         .filter-btn:hover {
             background: rgba(102, 126, 234, 0.2);
             border-color: #667eea;
-            transform: translateY(-2px);
         }
         
         .filter-btn.active {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-color: #667eea;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
+            border-color: transparent;
         }
         
         .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
         
         .game-card {
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(102, 126, 234, 0.2);
             border-radius: 15px;
             padding: 1.5rem;
             transition: all 0.3s;
-            cursor: pointer;
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         .game-card:hover {
             transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(102, 126, 234, 0.5);
             box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-            border-color: #667eea;
         }
         
         .game-icon {
             font-size: 3rem;
-            text-align: center;
             margin-bottom: 1rem;
         }
         
         .game-name {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.8rem;
             text-align: center;
@@ -150,24 +161,21 @@
         .tag {
             padding: 0.3rem 0.8rem;
             background: rgba(102, 126, 234, 0.2);
-            border-radius: 12px;
-            font-size: 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
             color: #a8b3ff;
         }
         
         .play-btn {
-            display: block;
-            width: 100%;
-            padding: 0.8rem;
+            padding: 0.7rem 2rem;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            border-radius: 10px;
-            color: #fff;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+            color: white;
             text-decoration: none;
-            text-align: center;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            margin-top: auto;
         }
         
         .play-btn:hover {
@@ -175,180 +183,207 @@
             box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
         }
         
-        .seo-content {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 15px;
-            padding: 2.5rem;
-            margin: 3rem 0;
-            line-height: 1.8;
-        }
-        
-        .seo-content h2 {
-            color: #667eea;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }
-        
-        .seo-content p {
-            margin-bottom: 1rem;
-            color: #c4c4c4;
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            font-size: 1.2rem;
+            color: #888;
+            display: none;
         }
         
         footer {
             background: rgba(15, 15, 30, 0.95);
-            padding: 2rem;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
             text-align: center;
-            margin-top: 3rem;
         }
         
-        footer a {
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #d4d4d4;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .footer-links a {
             color: #667eea;
             text-decoration: none;
-            margin: 0 1rem;
             transition: color 0.3s;
         }
         
-        footer a:hover {
+        .footer-links a:hover {
             color: #764ba2;
-        }
-        
-        .no-results {
-            text-align: center;
-            padding: 3rem;
-            color: #888;
-            font-size: 1.2rem;
         }
         
         @media (max-width: 768px) {
             h1 {
-                font-size: 1.8rem;
-            }
-            
-            .games-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 1rem;
-            }
-            
-            .game-card {
-                padding: 1rem;
-            }
-            
-            .game-icon {
                 font-size: 2rem;
             }
             
-            .game-name {
-                font-size: 1rem;
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1.5rem;
+                padding: 1rem;
             }
             
-            .seo-content {
-                padding: 1.5rem;
+            .filters {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>🎮 Unblocked Games</h1>
+        <h1>Unblocked Games - Play Free Online Games</h1>
         <div class="search-box">
             <input type="text" id="searchInput" placeholder="Search games...">
         </div>
     </header>
-    
+
+    <div class="intro-section">
+        <p>Welcome to the ultimate collection of unblocked games! Play free online games at school, work, or anywhere without restrictions. Our carefully curated selection includes action-packed adventures, brain-teasing puzzles, competitive sports games, and relaxing casual experiences. All games load instantly in your browser with no downloads required. Whether you're looking for a quick gaming break or an extended play session, we've got you covered with the best unblocked games available online.</p>
+    </div>
+
     <div class="filters">
         <button class="filter-btn active" data-filter="all">All Games</button>
-        <button class="filter-btn" data-filter="popular">Popular</button>
         <button class="filter-btn" data-filter="action">Action</button>
         <button class="filter-btn" data-filter="puzzle">Puzzle</button>
-        <button class="filter-btn" data-filter="casual">Casual</button>
         <button class="filter-btn" data-filter="sports">Sports</button>
+        <button class="filter-btn" data-filter="racing">Racing</button>
+        <button class="filter-btn" data-filter="arcade">Arcade</button>
+        <button class="filter-btn" data-filter="adventure">Adventure</button>
+        <button class="filter-btn" data-filter="strategy">Strategy</button>
     </div>
-    
-    <div class="container">
-        <div class="games-grid" id="gamesGrid"></div>
-        <div class="no-results" id="noResults" style="display: none;">No games found. Try a different search or filter.</div>
-        
-        <div class="seo-content">
-            <h2>Welcome to Unblocked Games - Your Ultimate Gaming Destination</h2>
-            <p>Looking for the best unblocked games to play at school, work, or anywhere? You've come to the right place! Our platform offers a massive collection of free online games that are accessible from any browser, with no downloads or installations required. Whether you're taking a quick break between classes or looking for some entertainment during your free time, we've got you covered with hundreds of exciting games across multiple genres.</p>
-            
-            <p>Our unblocked games collection features everything from fast-paced action games like Slope and Tunnel Rush to brain-teasing puzzle games like 2048 and Minesweeper. Sports fans can enjoy Basketball Stars and Retro Bowl, while casual gamers will love Cookie Clicker and Tiny Fishing. Every game is carefully selected to ensure it works smoothly on school and work networks, bypassing common restrictions while providing hours of entertainment.</p>
-            
-            <p>What makes our platform special? First, all games are completely free to play with no hidden costs or premium subscriptions. Second, our games are optimized for performance, ensuring smooth gameplay even on older computers or slower internet connections. Third, we maintain a clean, ad-light experience so you can focus on gaming without annoying interruptions. Fourth, our responsive design means you can play on any device - desktop, laptop, tablet, or smartphone.</p>
-            
-            <p>We understand that students and employees need quick access to entertainment during breaks, which is why we've designed our site to load fast and work reliably. Our games don't require Flash or any special plugins - they run directly in your browser using modern web technologies. This means you can start playing instantly without waiting for downloads or dealing with complicated setup processes.</p>
-            
-            <p>Our game library is constantly growing, with new titles added regularly based on player feedback and trending games. From classic arcade games that bring back nostalgic memories to modern indie hits that push the boundaries of browser gaming, we curate only the best experiences. Popular categories include action-packed adventures, strategic puzzle challenges, competitive sports simulations, and relaxing casual games perfect for unwinding.</p>
-            
-            <p>Safety and accessibility are our top priorities. All games are tested to ensure they're appropriate for school environments and free from malicious content. We also optimize for accessibility, ensuring our platform works with various assistive technologies and supports players with different needs. Whether you're a hardcore gamer looking for a challenge or someone who just wants a few minutes of fun, our diverse collection has something for everyone.</p>
-            
-            <p>Join thousands of players who trust Unblocked Games as their go-to destination for free online entertainment. Bookmark this page and come back anytime you need a gaming break. No registration required, no personal information collected - just pure, instant gaming fun. Start exploring our collection now and discover your next favorite game!</p>
-        </div>
-    </div>
-    
+
+    <div class="games-grid" id="gamesGrid"></div>
+    <div class="no-results" id="noResults">No games found. Try a different search or filter.</div>
+
     <footer>
-        <p>&copy; 2026 Unblocked Games. All rights reserved.</p>
-        <div>
-            <a href="about.html">About</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="dmca.html">DMCA</a>
+        <div class="footer-content">
+            <p>Unblocked Games offers the largest collection of free online games that can be played at school, work, or home. We continuously update our library with new titles across all genres. From classic arcade games to modern multiplayer experiences, every game is carefully selected to ensure quality entertainment. Our platform is optimized for all devices and browsers, providing seamless gameplay without installation. Join millions of players worldwide who trust us for their daily gaming needs. Bookmark this page and never miss out on the latest unblocked games!</p>
+            <div class="footer-links">
+                <a href="about.html">About</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="dmca.html">DMCA</a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9rem; color: #888;">© 2024 Unblocked Games. All rights reserved.</p>
         </div>
     </footer>
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Unblocked Games",
+        "url": "https://playxiagames.github.io/",
+        "description": "Play the best unblocked games at school or work. Free online games including action, puzzle, sports, and casual games.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://playxiagames.github.io/?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+
     <script>
         const games = [
-            { id: "slope", name: "Slope", category: ["popular", "action"], img: "🎿" },
-            { id: "slope-2", name: "Slope 2", category: ["popular", "action"], img: "⛷️" },
-            { id: "tunnel-rush", name: "Tunnel Rush", category: ["popular", "action"], img: "🚀" },
-            { id: "geometry-dash", name: "Geometry Dash", category: ["popular", "action"], img: "🔷" },
-            { id: "cookie-clicker", name: "Cookie Clicker", category: ["popular", "casual"], img: "🍪" },
-            { id: "flappy-bird", name: "Flappy Bird", category: ["casual", "action"], img: "🐦" },
-            { id: "2048", name: "2048", category: ["popular", "puzzle"], img: "🔢" },
-            { id: "among-us", name: "Among Us", category: ["popular", "casual"], img: "👾" },
-            { id: "wordle", name: "Wordle", category: ["puzzle"], img: "📝" },
-            { id: "minesweeper", name: "Minesweeper", category: ["puzzle"], img: "💣" },
-            { id: "level-devil", name: "Level Devil", category: ["action"], img: "😈" },
-            { id: "tiny-fishing", name: "Tiny Fishing", category: ["casual"], img: "🎣" },
-            { id: "basket-bros", name: "Basket Bros", category: ["sports"], img: "🏀" },
-            { id: "doodle-jump", name: "Doodle Jump", category: ["casual", "action"], img: "🦘" },
-            { id: "duck-life", name: "Duck Life", category: ["casual"], img: "🦆" },
-            { id: "duck-life-2", name: "Duck Life 2", category: ["casual"], img: "🐥" },
-            { id: "duck-life-4", name: "Duck Life 4", category: ["casual"], img: "🦢" },
-            { id: "paper-minecraft", name: "Paper Minecraft", category: ["popular", "action"], img: "⛏️" },
-            { id: "temple-run-2", name: "Temple Run 2", category: ["popular", "action"], img: "🏃" },
-            { id: "vex-6", name: "Vex 6", category: ["action"], img: "🤸" },
-            { id: "draw-the-hill", name: "Draw The Hill", category: ["casual"], img: "✏️" },
-            { id: "stack", name: "Stack", category: ["casual"], img: "📦" },
-            { id: "bad-ice-cream-2", name: "Bad Ice Cream 2", category: ["action"], img: "🍦" },
-            { id: "retro-bowl", name: "Retro Bowl", category: ["popular", "sports"], img: "🏈" },
-            { id: "tetris", name: "Tetris", category: ["popular", "puzzle"], img: "🧩" },
-            { id: "breaking-the-bank", name: "Breaking The Bank", category: ["casual"], img: "🏦" },
-            { id: "bloons-td", name: "Bloons TD", category: ["action"], img: "🎈" },
-            { id: "jelly-truck", name: "Jelly Truck", category: ["casual"], img: "🚚" },
-            { id: "gun-mayhem", name: "Gun Mayhem", category: ["action"], img: "🔫" },
-            { id: "tag", name: "Tag", category: ["casual"], img: "🏃‍♂️" },
-            { id: "stack-ball", name: "Stack Ball", category: ["casual"], img: "⚽" },
-            { id: "adventure-drivers", name: "Adventure Drivers", category: ["action"], img: "🏎️" },
-            { id: "2048-multitask", name: "2048 Multitask", category: ["puzzle"], img: "🎯" },
-            { id: "traffic-escape", name: "Traffic Escape", category: ["puzzle"], img: "🚗" },
-            { id: "scrap-metal-3", name: "Scrap Metal 3", category: ["action"], img: "🤖" },
-            { id: "rocket-soccer", name: "Rocket Soccer", category: ["sports"], img: "⚽" },
-            { id: "tanuki-sunset", name: "Tanuki Sunset", category: ["action"], img: "🦝" },
-            { id: "basketball-stars", name: "Basketball Stars", category: ["sports"], img: "⭐" }
+            {id: '2048', name: '2048', img: '🎮', category: ['puzzle']},
+            {id: '2048-multitask', name: '2048 Multitask', img: '🧩', category: ['puzzle']},
+            {id: 'adventure-drivers', name: 'Adventure Drivers', img: '🚗', category: ['racing']},
+            {id: 'among-us', name: 'Among Us', img: '👾', category: ['action']},
+            {id: 'bad-ice-cream-2', name: 'Bad Ice Cream 2', img: '🍦', category: ['action']},
+            {id: 'basket-bros', name: 'Basket Bros', img: '🏀', category: ['sports']},
+            {id: 'basketball-stars', name: 'Basketball Stars', img: '⭐', category: ['sports']},
+            {id: 'bloons-td', name: 'Bloons TD', img: '🎈', category: ['strategy']},
+            {id: 'breaking-the-bank', name: 'Breaking the Bank', img: '🏦', category: ['adventure']},
+            {id: 'cookie-clicker', name: 'Cookie Clicker', img: '🍪', category: ['idle']},
+            {id: 'doodle-jump', name: 'Doodle Jump', img: '🦘', category: ['arcade']},
+            {id: 'draw-the-hill', name: 'Draw the Hill', img: '✏️', category: ['puzzle']},
+            {id: 'duck-life', name: 'Duck Life', img: '🦆', category: ['adventure']},
+            {id: 'duck-life-2', name: 'Duck Life 2', img: '🦆', category: ['adventure']},
+            {id: 'duck-life-4', name: 'Duck Life 4', img: '🦆', category: ['adventure']},
+            {id: 'flappy-bird', name: 'Flappy Bird', img: '🐦', category: ['arcade']},
+            {id: 'geometry-dash', name: 'Geometry Dash', img: '🔷', category: ['arcade']},
+            {id: 'gun-mayhem', name: 'Gun Mayhem', img: '🔫', category: ['action']},
+            {id: 'jelly-truck', name: 'Jelly Truck', img: '🚚', category: ['racing']},
+            {id: 'level-devil', name: 'Level Devil', img: '😈', category: ['puzzle']},
+            {id: 'minesweeper', name: 'Minesweeper', img: '💣', category: ['puzzle']},
+            {id: 'paper-minecraft', name: 'Paper Minecraft', img: '⛏️', category: ['adventure']},
+            {id: 'retro-bowl', name: 'Retro Bowl', img: '🏈', category: ['sports']},
+            {id: 'rocket-soccer', name: 'Rocket Soccer', img: '⚽', category: ['sports']},
+            {id: 'scrap-metal-3', name: 'Scrap Metal 3', img: '🤖', category: ['action']},
+            {id: 'slope', name: 'Slope', img: '🎿', category: ['arcade']},
+            {id: 'slope-2', name: 'Slope 2', img: '🎿', category: ['arcade']},
+            {id: 'stack', name: 'Stack', img: '📦', category: ['arcade']},
+            {id: 'stack-ball', name: 'Stack Ball', img: '🏐', category: ['arcade']},
+            {id: 'tag', name: 'Tag', img: '🏃', category: ['action']},
+            {id: 'tanuki-sunset', name: 'Tanuki Sunset', img: '🦝', category: ['racing']},
+            {id: 'temple-run-2', name: 'Temple Run 2', img: '🏃', category: ['arcade']},
+            {id: 'tetris', name: 'Tetris', img: '🧱', category: ['puzzle']},
+            {id: 'tiny-fishing', name: 'Tiny Fishing', img: '🎣', category: ['casual']},
+            {id: 'traffic-escape', name: 'Traffic Escape', img: '🚦', category: ['puzzle']},
+            {id: 'tunnel-rush', name: 'Tunnel Rush', img: '🌀', category: ['arcade']},
+            {id: 'vex-6', name: 'Vex 6', img: '🤸', category: ['action']},
+            {id: 'wordle', name: 'Wordle', img: '📝', category: ['puzzle']}
         ];
 
         let currentFilter = 'all';
         let searchTerm = '';
 
+        // Generate ItemList Schema
+        const itemListSchema = {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": games.map((game, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                    "@type": "VideoGame",
+                    "name": game.name,
+                    "url": `https://playxiagames.github.io/games/${game.id}/play.html`,
+                    "genre": game.category.join(', ')
+                }
+            }))
+        };
+
+        const schemaScript = document.createElement('script');
+        schemaScript.type = 'application/ld+json';
+        schemaScript.textContent = JSON.stringify(itemListSchema);
+        document.head.appendChild(schemaScript);
+
         function renderGames() {
             const grid = document.getElementById('gamesGrid');
             const noResults = document.getElementById('noResults');
             
-            let filtered = games.filter(game => {
-                const matchesFilter = currentFilter === 'all' || game.category.includes(currentFilter);
-                const matchesSearch = game.name.toLowerCase().includes(searchTerm.toLowerCase());
-                return matchesFilter && matchesSearch;
-            });
+            let filtered = games;
+            
+            if (currentFilter !== 'all') {
+                filtered = games.filter(game => game.category.includes(currentFilter));
+            }
+            
+            if (searchTerm) {
+                filtered = filtered.filter(game => 
+                    game.name.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+            }
 
             if (filtered.length === 0) {
                 grid.style.display = 'none';
@@ -366,7 +401,7 @@
                     <div class="game-tags">
                         ${game.category.map(cat => `<span class="tag">${cat}</span>`).join('')}
                     </div>
-                    <a href="play.html?game=${game.id}" class="play-btn">Play Now</a>
+                    <a href="games/${game.id}/play.html" class="play-btn">Play Now</a>
                 </div>
             `).join('');
         }
